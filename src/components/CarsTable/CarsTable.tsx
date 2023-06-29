@@ -14,7 +14,7 @@ const CarsTable: FC<CarsTableProps> = ({ cars }) => {
           <th className="table-cell">Year</th>
           <th className="table-cell">Price</th>
           <th className="table-cell">Availability</th>
-          <th className="table-cell">Actions </th>
+          <th className="table-cell">Actions Columns</th>
         </tr>
       </thead>
       <tbody>
@@ -28,7 +28,7 @@ const CarsTable: FC<CarsTableProps> = ({ cars }) => {
               <td className="table-cell">{car.car_model_year}</td>
               <td className="table-cell">{car.price}</td>
               <td className="table-cell">
-                {car.availability === true ? 'Yes' : 'No'}
+                {car.availability === true ? 'true' : 'false'}
               </td>
               <td className="table-cell">Edit / Delete</td>
             </tr>
