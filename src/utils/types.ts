@@ -13,3 +13,8 @@ export interface CarsTableProps {
   cars: CarData[];
   handleModalClick?: () => void;
 }
+
+export interface SearchBarProps {
+  handleInput: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  doSearch: () => void;
+}
