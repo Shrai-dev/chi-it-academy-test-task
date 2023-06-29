@@ -1,0 +1,27 @@
+.search__container {
+  height: 34px;
+  width: 616px;
+  margin: 20px auto;
+  padding: 0 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search__input {
+  height: 34px;
+  width: 558px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  color: #6d7a7c;
+}
+
+.search__btn {
+  height: 34px;
+  width: 65px;
+  border: none;
+  cursor: pointer;
+}
