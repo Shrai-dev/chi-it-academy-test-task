@@ -1,0 +1,10 @@
+.table {
+  width: 100%;
+}
+
+.table-cell {
+  width: 150px;
+  padding: 7px;
+  border: 1px solid;
+  font-size: 18px;
+}
