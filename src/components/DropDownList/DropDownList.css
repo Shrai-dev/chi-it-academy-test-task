@@ -1,0 +1,11 @@
+.dropdown__header {
+  cursor: pointer;
+}
+
+.dropdown__list {
+  list-style-type: none;
+}
+
+.dropdown__list-item {
+  cursor: pointer;
+}
