@@ -1,0 +1,23 @@
+.pagination {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.pagination__list {
+  list-style-type: none;
+  display: flex;
+}
+
+.pagination__item {
+  padding: 5px 3px;
+  width: 35px;
+  height: 35px;
+  font-size: 20px;
+  border: 1px solid #000;
+  text-align: center;
+  cursor: pointer;
+}
+
+.pagination__item:hover {
+  background-color: #f5d286;
+}
