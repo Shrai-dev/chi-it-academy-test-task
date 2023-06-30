@@ -4,10 +4,13 @@ import CarsTable from './components/CarsTable/CarsTable';
 import { fetchCars } from './api/api';
 import SearchBar from './components/SearchBar/SearchBar';
 import { CarData } from './utils/types';
+import Pagination from './components/Pagination/Pagination';
 
 function App() {
   const [cars, setCars] = useState<CarData[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [carsPerPage] = useState(40);
 
   const getCarsList = async () => {
     const carsList = await fetchCars();
@@ -24,7 +27,6 @@ function App() {
       getCarsList();
     }
     let dataLowerCase = event.target.value.toLowerCase();
-    console.log(dataLowerCase);
     setSearchQuery(dataLowerCase);
   };
 
@@ -47,6 +49,12 @@ function App() {
     setCars(filteredList);
   };
 
+  const indexOfLastCar = currentPage * carsPerPage;
+  const indexOfFirstCar = indexOfLastCar - carsPerPage;
+  const currentCars = cars.slice(indexOfFirstCar, indexOfLastCar);
+
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+
   return (
     <>
       <header>
@@ -58,8 +66,13 @@ function App() {
           handleInput={getSearchValue}
         />
         <div className="cars__table">
-          <CarsTable cars={cars} />
+          <CarsTable cars={currentCars} />
         </div>
+        <Pagination
+          carsPerPage={carsPerPage}
+          totalCars={cars.length}
+          paginate={paginate}
+        />
       </main>
     </>
   );
