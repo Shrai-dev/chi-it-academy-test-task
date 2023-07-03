@@ -23,3 +23,9 @@ export interface PaginationProps {
   totalCars: number;
   paginate: (pageNumber: number) => void;
 }
+
+export interface ModalProps {
+  children: any;
+  active: boolean;
+  setActive: (arg0: boolean) => void;
+}
