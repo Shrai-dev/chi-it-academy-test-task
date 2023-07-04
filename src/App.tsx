@@ -16,8 +16,13 @@ function App() {
   const [modalActive, setModalActive] = useState(false);
 
   const getCarsList = async () => {
-    const carsList = await fetchCars();
-    setCars(carsList);
+    if (localStorage.getItem('cars')) {
+      setCars(JSON.parse(localStorage.getItem('cars')!));
+    } else {
+      const carsList = await fetchCars();
+      localStorage.setItem('cars', JSON.stringify(carsList));
+      setCars(carsList);
+    }
   };
 
   useEffect(() => {
@@ -31,6 +36,10 @@ function App() {
     }
     let dataLowerCase = event.target.value.toLowerCase();
     setSearchQuery(dataLowerCase);
+  };
+
+  const handleCarsTableChanges = () => {
+    setCars(JSON.parse(localStorage.getItem('cars')!));
   };
 
   const handleSearch = (searchTerm: string): void => {
@@ -83,7 +92,10 @@ function App() {
           </button>
         </div>
         <div className="cars__table">
-          <CarsTable cars={currentCars} />
+          <CarsTable
+            cars={currentCars}
+            handleCarsTableChanges={handleCarsTableChanges}
+          />
         </div>
         <Pagination
           carsPerPage={carsPerPage}
