@@ -16,7 +16,6 @@ const AddCarForm: FC<AddCarFormProps> = ({ updateState }) => {
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    console.log(carFormData);
     updateState(carFormData);
     setCarFormData({
       availability: false,
