@@ -5,12 +5,15 @@ import { fetchCars } from './api/api';
 import SearchBar from './components/SearchBar/SearchBar';
 import { CarData } from './utils/types';
 import Pagination from './components/Pagination/Pagination';
+import Modal from './components/Modal/Modal';
+import AddCarForm from './components/CarForms/AddCarForm/AddCarForm';
 
 function App() {
   const [cars, setCars] = useState<CarData[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [carsPerPage] = useState(40);
+  const [modalActive, setModalActive] = useState(false);
 
   const getCarsList = async () => {
     const carsList = await fetchCars();
@@ -55,6 +58,15 @@ function App() {
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
+  const toggleModal = () => {
+    setModalActive(true);
+  };
+
+  const addNewCar = (carData: CarData) => {
+    setCars((prevCars) => [...prevCars, carData]);
+    setModalActive(false);
+  };
+
   return (
     <>
       <header>
@@ -65,6 +77,11 @@ function App() {
           doSearch={() => handleSearch(searchQuery)}
           handleInput={getSearchValue}
         />
+        <div className="add__car-wrapper">
+          <button className="add__car-btn" onClick={toggleModal}>
+            Add new car
+          </button>
+        </div>
         <div className="cars__table">
           <CarsTable cars={currentCars} />
         </div>
@@ -74,6 +91,9 @@ function App() {
           paginate={paginate}
         />
       </main>
+      <Modal active={modalActive} setActive={setModalActive}>
+        <AddCarForm updateState={addNewCar} />
+      </Modal>
     </>
   );
 }

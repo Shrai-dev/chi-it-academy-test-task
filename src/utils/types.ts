@@ -29,3 +29,7 @@ export interface ModalProps {
   active: boolean;
   setActive: (arg0: boolean) => void;
 }
+
+export interface AddCarFormProps {
+  updateState: (carData: CarData) => void;
+}
