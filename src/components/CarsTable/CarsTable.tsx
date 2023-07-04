@@ -1,8 +1,9 @@
 import { FC } from 'react';
 import './CarsTable.css';
 import { CarsTableProps } from '../../utils/types';
+import DropDownList from '../DropDownList/DropDownList';
 
-const CarsTable: FC<CarsTableProps> = ({ cars }) => {
+const CarsTable: FC<CarsTableProps> = ({ cars, handleCarsTableChanges }) => {
   return (
     <table className="table">
       <thead>
@@ -28,9 +29,14 @@ const CarsTable: FC<CarsTableProps> = ({ cars }) => {
               <td className="table-cell">{car.car_model_year}</td>
               <td className="table-cell">{car.price}</td>
               <td className="table-cell">
-                {car.availability === true ? 'true' : 'false'}
+                {car.availability === true ? 'Yes' : 'No'}
               </td>
-              <td className="table-cell">Edit / Delete</td>
+              <td className="table-cell">
+                <DropDownList
+                  id={car.id}
+                  handleCarsTableChanges={handleCarsTableChanges}
+                />
+              </td>
             </tr>
           );
         })}

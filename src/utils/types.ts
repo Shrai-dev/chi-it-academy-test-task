@@ -11,6 +11,7 @@ export interface CarData {
 
 export interface CarsTableProps {
   cars: CarData[];
+  handleCarsTableChanges: () => void;
 }
 
 export interface SearchBarProps {
@@ -32,4 +33,14 @@ export interface ModalProps {
 
 export interface AddCarFormProps {
   updateState: (carData: CarData) => void;
+}
+
+export interface DropDownListProps {
+  id: number;
+  handleCarsTableChanges: () => void;
+}
+
+export interface DeleteCarFormProps {
+  id: number;
+  handleClick: (id: number) => void;
 }
