@@ -6,7 +6,7 @@ import SearchBar from './components/SearchBar/SearchBar';
 import { CarData } from './utils/types';
 import Pagination from './components/Pagination/Pagination';
 import Modal from './components/Modal/Modal';
-import AddCarForm from './components/CarForms/AddCarForm/AddCarForm';
+import AddCarForm from './components/CarForms/UpdateCarForm/AddCarForm';
 
 function App() {
   const [cars, setCars] = useState<CarData[]>([]);

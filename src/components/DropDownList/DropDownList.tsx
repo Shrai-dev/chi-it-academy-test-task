@@ -2,7 +2,8 @@ import { FC, SetStateAction, useState } from 'react';
 import './DropDownList.css';
 import Modal from '../Modal/Modal';
 import DeleteCarForm from '../CarForms/DeleteCarForm/DeleteCarForm';
-import { DropDownListProps } from '../../utils/types';
+import { CarData, DropDownListProps } from '../../utils/types';
+import EditCarForm from '../CarForms/UpdateCarForm/EditCarForm';
 
 const DropDownList: FC<DropDownListProps> = ({
   id,
@@ -11,7 +12,7 @@ const DropDownList: FC<DropDownListProps> = ({
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState('Choose an action');
   const [modalActive, setModalActive] = useState(false);
-  const carsList = JSON.parse(localStorage.getItem('cars')!);
+  const carsList: CarData[] = JSON.parse(localStorage.getItem('cars')!);
 
   const toggleDropDown = () => setIsOpen(!isOpen);
 
@@ -21,16 +22,22 @@ const DropDownList: FC<DropDownListProps> = ({
     setModalActive(true);
   };
 
-  const handleClick = (id: number) => {
+  const handleClick = (id: number, updatedCarData?: CarData) => {
     if (selectedOption === 'Edit') {
-      console.log('Edit');
+      const editIndex: number = carsList.findIndex((car) => car.id === id);
+      const updatedCars = [
+        ...carsList.slice(0, editIndex),
+        updatedCarData,
+        ...carsList.slice(editIndex + 1),
+      ];
+      localStorage.setItem('cars', JSON.stringify(updatedCars));
+      handleCarsTableChanges();
     } else if (selectedOption === 'Delete') {
       const updatedCars = carsList.filter(
         (car: { id: number }) => car.id !== id
       );
       localStorage.setItem('cars', JSON.stringify(updatedCars));
       handleCarsTableChanges();
-      setSelectedOption('Choose an action');
     }
     setModalActive(false);
   };
@@ -40,7 +47,7 @@ const DropDownList: FC<DropDownListProps> = ({
   return (
     <div className="dropdown__container">
       <div className="dropdown__header" onClick={toggleDropDown}>
-        {selectedOption || 'Choose an action'}
+        {'Choose an action'}
       </div>
       {isOpen && (
         <div className="dropdown__list-container">
@@ -61,7 +68,7 @@ const DropDownList: FC<DropDownListProps> = ({
       )}
       <Modal active={modalActive} setActive={setModalActive}>
         {selectedOption === 'Edit' ? (
-          ''
+          <EditCarForm id={id} handleClick={handleClick} />
         ) : (
           <DeleteCarForm id={id} handleClick={handleClick} />
         )}
