@@ -1,6 +1,6 @@
 import { FC, FormEventHandler, useState } from 'react';
 import './AddCarForm.css';
-import { CarData, EditCarFormProps } from '../../../utils/types';
+import { CarData, EditCarFormProps } from '../../../utils/interfaces';
 
 const EditCarForm: FC<EditCarFormProps> = ({ id, handleClick }) => {
   const carsList: CarData[] = JSON.parse(localStorage.getItem('cars')!);

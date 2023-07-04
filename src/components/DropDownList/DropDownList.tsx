@@ -2,7 +2,7 @@ import { FC, SetStateAction, useState } from 'react';
 import './DropDownList.css';
 import Modal from '../Modal/Modal';
 import DeleteCarForm from '../CarForms/DeleteCarForm/DeleteCarForm';
-import { CarData, DropDownListProps } from '../../utils/types';
+import { CarData, DropDownListProps } from '../../utils/interfaces';
 import EditCarForm from '../CarForms/UpdateCarForm/EditCarForm';
 
 const DropDownList: FC<DropDownListProps> = ({

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import './SearchBar.css';
-import { SearchBarProps } from '../../utils/types';
+import { SearchBarProps } from '../../utils/interfaces';
 
 const SearchBar: FC<SearchBarProps> = ({ handleInput, doSearch }) => {
   const handleKeyPress = (e: React.KeyboardEvent<HTMLElement>) => {

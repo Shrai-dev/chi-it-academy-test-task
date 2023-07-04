@@ -1,6 +1,6 @@
 import { useState, FC, FormEventHandler } from 'react';
 import './AddCarForm.css';
-import { CarData, AddCarFormProps } from '../../../utils/types';
+import { CarData, AddCarFormProps } from '../../../utils/interfaces';
 
 const AddCarForm: FC<AddCarFormProps> = ({ updateState }) => {
   const [carFormData, setCarFormData] = useState<CarData>({

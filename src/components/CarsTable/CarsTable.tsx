@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import './CarsTable.css';
-import { CarsTableProps } from '../../utils/types';
+import { CarsTableProps } from '../../utils/interfaces';
 import DropDownList from '../DropDownList/DropDownList';
 
 const CarsTable: FC<CarsTableProps> = ({ cars, handleCarsTableChanges }) => {

@@ -44,3 +44,8 @@ export interface DeleteCarFormProps {
   id: number;
   handleClick: (id: number) => void;
 }
+
+export interface EditCarFormProps {
+  id: number;
+  handleClick: (id: number, updatedCarData?: CarData) => void;
+}

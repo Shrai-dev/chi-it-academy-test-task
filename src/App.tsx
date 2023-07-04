@@ -3,7 +3,7 @@ import './App.css';
 import CarsTable from './components/CarsTable/CarsTable';
 import { fetchCars } from './api/api';
 import SearchBar from './components/SearchBar/SearchBar';
-import { CarData } from './utils/types';
+import { CarData } from './utils/interfaces';
 import Pagination from './components/Pagination/Pagination';
 import Modal from './components/Modal/Modal';
 import AddCarForm from './components/CarForms/UpdateCarForm/AddCarForm';

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import './DeleteCarForm.css';
-import { DeleteCarFormProps } from '../../../utils/types';
+import { DeleteCarFormProps } from '../../../utils/interfaces';
 
 const DeleteCarForm: FC<DeleteCarFormProps> = ({ id, handleClick }) => {
   return (

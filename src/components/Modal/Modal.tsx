@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { ModalProps } from '../../utils/types';
+import { ModalProps } from '../../utils/interfaces';
 import './Modal.css';
 
 const Modal: FC<ModalProps> = ({ children, active, setActive }) => {

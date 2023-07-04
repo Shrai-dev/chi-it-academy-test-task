@@ -1,4 +1,4 @@
-import { PaginationProps } from '../../utils/types';
+import { PaginationProps } from '../../utils/interfaces';
 import './Pagination.css';
 
 const Pagination = ({ carsPerPage, totalCars, paginate }: PaginationProps) => {
