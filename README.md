@@ -1,6 +1,6 @@
 # Test task
 
-The project has one page that contains a table with cars list. It is possible to add new car to the table, edit car data and delete car from table. User actins affects the table and are visible between page reloads.
+The project has one page that contains a table with cars list. It is possible to add new car to the table, edit car data and delete car from table. User actions affects the table and are visible between page reloads.
 
 The project was created with React, TypeScript, CSS, Vite.
 
